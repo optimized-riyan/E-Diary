@@ -1,0 +1,84 @@
+<div>
+    <ul id="navbar">
+        <li name="Title" id="nav1">
+            <p id="project-title" class="navbar-text">eDiary</p>
+        </li>
+        <li name="Home" id="nav2">
+            <a id="home-link" class="navbar-text" href="home">Home</a>
+        </li>
+        <li name="About" id="nav3">
+            <a id="about-link" class="navbar-text" href="about">About</a>
+        </li>
+        <li name="About" id="nav4">
+            <a id="logout-link" class="navbar-text" href="logout">Logout</a>
+        </li>
+    </ul>
+</div>
+
+<style>
+    .active {
+        font-weight: 600;
+    }
+
+    #project-title {
+        font-size: 32px;
+        font-family: 'Roboto Slab';
+        margin: auto;
+        text-shadow: 2px 2px 7px black;
+    }
+    
+    #nav1 {
+        grid-column: 1 / 2;
+    }
+
+    #nav2 {
+        grid-column: 3 / 4;
+    }
+
+    #nav3 {
+        grid-column: 4 / 5;
+    }
+
+    #navbar {
+        display: grid;
+        width: auto;
+        margin: 0;
+        padding: 0px;
+        grid-template-columns: 1fr 50% 1fr 1fr 1fr;
+        list-style: none;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    #navbar > li {
+        display: flex;
+        min-height: 64px;
+    }
+
+    #navbar > li a {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-family: 'Roboto Slab';
+        font-size: 18px;
+        margin: auto;
+        color: black;
+        transition: box-shadow ease-in 200ms;
+    }
+
+    #navbar > li a:hover {
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.18) inset, -1px -1px 10px rgba(0, 0, 0, 0.18) inset;
+    }
+
+    .navbar-title {
+        display: block;
+        text-align: center;
+        margin: 0;
+        font-size: 18px;
+        padding: 6px 12px;
+        align-items: center;
+        text-decoration: none;
+    }
+</style>

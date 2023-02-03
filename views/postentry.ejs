@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/header.ejs') %>
+        <link rel="stylesheet" href="stylesheet2.css">
+</head>
+
+<body>
+    <div id="page-container">
+        <%- include('partials/navbar.ejs') %>
+            <form action="postentry" method="post">
+                <div name="container for date and content post" id="container-2">
+                    <div class="text-titles" id="date-text">
+                        <p>Date:</p>
+                    </div>
+                    <div id="date-input">
+                        <input name="date" type="date" value="<%= locals.date || '' %>">
+                    </div>
+                    <div class="text-titles" id="content-text">
+                        <p>Content:</p>
+                    </div>
+                    <div id="content-input">
+                        <textarea name="content" spellcheck="false"><%= locals.content || '' %></textarea>
+                    </div>
+                    <div id="error-msg">
+                        <p>
+                            <%= locals.error || '' %>
+                        </p>
+                    </div>
+                    <div id="submit-btn">
+                        <input type="submit" value="Add">
+                    </div>
+                </div>
+            </form>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let errorMsg = document.getElementById('error-msg')
+    if (errorMsg.innerText === 'New entry added') {
+        errorMsg.firstElementChild.style.color = 'green'
+    }
+</script>

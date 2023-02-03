@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/header.ejs') %>
+        <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <%- include('partials/navbar.ejs') %>
+            <div id="flex-container">
+                <div id="observe-title">
+                    <p>
+                        About Me and This Project
+                    </p>
+                </div>
+                <div id="observe-content">
+                    <p>
+                        This website was made by Riyan Gonsalves, currently pursuing B. Tech. at NIT Sikkim. I am in my
+                        post 5th semester vacation during the making of this project. <br>This project was completed using
+                        the following technologies/software/languages: <br>
+                        MongoDB, ExpressJS, EJS file format, NodeJS, <span style="font-weight: 600;">NO</span> Bootstrap
+                        or Tailwind.
+                    </p>
+                </div>
+            </div>
+    </div>
+</body>
+
+</html>
+<style>
+    #flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: 'Montserrat';
+    }
+
+    #flex-container div {
+        width: 80%;
+        margin: auto;
+        margin-top: 12px;
+        border-style: groove;
+    }
+
+    #observe-title p {
+        font-size: x-large;
+        font-weight: 700;
+        padding: 0px 32px;
+    }
+
+    #observe-content {
+        min-height: 200px;
+    }
+
+    #observe-content p {
+        padding: 0px 32px;
+        font-size: 18px;
+    }
+</style>
+
+<script>
+    document.getElementsByTagName('body')[0].onload = function () {
+        document.getElementById('about-link').classList.add('active')
+    }
+</script>

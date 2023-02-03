@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet_signup.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <style>
+        :root {
+            --extrarows: 2;
+            --extraheight: 9;
+        }
+    </style>
+    <title>eDiary</title>
+</head>
+<body>
+    <div class="card-container">
+        <p id="title">eDiary</p>
+        <form action="" method="post">
+            <legend>
+                <div id="grid-item_1"><p>Sign Up</p></div>
+                <div id="grid-item_2"><p class="card-text">Username</p></div>
+                <div id="grid-item_3"><input class="card-input" name="username" type="text" value="<%= locals.username %>"></div>
+                <div id="grid-item_4"><p class="card-text">Password</p></div>
+                <div id="grid-item_5"><input class="card-input" name="password" type="password" value="<%= locals.password %>"></div>
+                <div id="extra-grid-item_1"><p class="card-text">Confirm Password</p></div>
+                <div id="extra-grid-item_2"><input class="card-input" type="password" name="confirm_pass"></div>
+                <div id="grid-item_6"><input type="submit" value="Submit"></div>
+                <div id="grid-item_7"><p class="err-msg"><%= locals.error %></p></div>
+            </legend>
+        </form>
+        <div class="alternate-page-link">
+            <p>Already have an ID?</p>
+            <a href="login">Login</a>
+        </div>
+    </div>
+</body>
+</html>

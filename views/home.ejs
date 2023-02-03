@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header.ejs') %>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <%- include('partials/navbar.ejs') %>
+        <div>
+            <div class="grid-container-home">
+                <div class="description" id="home-grid-item1">
+                    <h1>Welcome to your eDiary</h1>
+                    <p>This is the page where you can view your entries or add/delete entries.</p>
+                </div>
+                <div id="home-grid-item2">
+                    <!-- <input type="button" value="New Entry" onclick="location.href = 'postentry'"> -->
+                    <div id="test-container">
+                        <div class="button-container" onclick="location.href = 'postentry'">
+                            <div class="btn-con-elem button-background"></div>
+                            <div id="new-entry-icon" class="btn-con-elem button-icon"><i class="fa fa-light fa-plus" aria-hidden="true"></i></div>
+                            <p class="btn-con-elem button-text disabled-text-select">
+                                New Entry
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="home-grid-item3">
+                    <!-- <input class="fas " type="button" value="Find Entry" onclick="displaySearchBar()"> -->
+                    <div id="test-container">
+                        <div class="button-container" onclick="displaySearchBar()">
+                            <div class="btn-con-elem button-background"></div>
+                            <div id="find-entry-icon" class="btn-con-elem button-icon"><i class="fa fa-light fa-search" aria-hidden="true"></i></div>
+                            <p class="btn-con-elem button-text disabled-text-select">
+                                Find Entry
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="home-grid-item4">
+                    <form action="home" id="find-entry-get" method="get">
+                        <div id="search-bar">
+                            <input type="date" name="date" id="date-input">
+                            <input type="submit" value="Find" id="submit-btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="entries-container">
+                <div id="entries-container-header">
+                    <p><%= locals.titleAboveEntriesView %></p>
+                </div>
+                <% for (var i = 0; i < dates.length; i += 1) { %>
+                    <div class="entry">
+                        <a href="observe?date=<%= dates[i] %>"><%= locals.dateToText(dates[i]) %></a>
+                    </div>
+                <% } %>
+                <!-- <div class="entry">
+                    <a href="#">Entry1</a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    document.getElementsByTagName('body')[0].onload = function () {
+        document.getElementById('home-link').classList.add('active')
+    }
+
+    const displaySearchBar = () => {
+        let searchDisplay = document.getElementById('home-grid-item4')
+        console.log(searchDisplay.style.visibility)
+        if (searchDisplay.style.visibility === 'hidden' || searchDisplay.style.visibility === '') {
+            searchDisplay.style.visibility = 'visible'
+        }
+        else {
+            searchDisplay.style.visibility = 'hidden'
+        }
+    }
+</script>

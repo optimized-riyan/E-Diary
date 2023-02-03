@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet_login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <title>eDiary</title>
+</head>
+<body>
+    <div class="card-container">
+        <p id="title">eDiary</p>
+        <form action="" method="post">
+            <legend>
+                <div id="grid-item_1"><p>Login</p></div>
+                <div id="grid-item_2"><p class="card-text">Username</p></div>
+                <div id="grid-item_3"><input class="card-input" type="text" name="username" value="<%= locals.username %>"></div>
+                <div id="grid-item_4"><p class="card-text">Password</p></div>
+                <div id="grid-item_5"><input class="card-input" type="password" name="password" value="<%= locals.password %>"></div>
+                <div id="grid-item_6"><input type="submit" value="Submit"></div>
+                <div id="grid-item_7"><p class="err-msg"><%= locals.error %></p></div>
+            </legend>
+        </form>
+        <div class="alternate-page-link">
+            <p>Want to make a new ID?</p>
+            <a href="signup">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

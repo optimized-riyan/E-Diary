@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+}
+
+#container-2 {
+    width: 60%;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 140px 220px repeat(3, 1fr);
+    margin: auto;
+    column-width: 200px;
+    border-style: groove;
+    margin-top: 18px;
+}
+
+.text-titles {
+    padding: 12px 12px;
+}
+
+.text-titles p {
+    font-family: 'Montserrat';
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+}
+
+#date-text {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+#date-input {
+    /* display: flex; */
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+    padding: 10px 4px;
+}
+
+#date-input input {
+    height: 88%;
+    border: 1px solid black;
+    font-style: 'Montserrat';
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#content-text {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+#content-input {
+    grid-column: 2 / -1;
+    grid-row: 2 / -2;
+    padding: 12px 4px;
+}
+
+textarea {
+    width: 500px;
+    height: 150px;
+    resize: none;
+    padding: 2px 3px;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.1);
+    outline-style: groove;
+    outline-width: 1px;
+    font-size: 15px;
+}
+
+#error-msg {
+    display: flex;
+    margin-left: 10%;
+    grid-column: 2 / 4;
+    grid-row: 6 / 7;
+    justify-content: left;
+    font-family: 'Montserrat';
+}
+
+#error-msg p {
+    font-size: 13px;
+    font-weight: 800;
+    color: red;
+    margin-top: 0;
+}
+
+#submit-btn {
+    display: flex;
+    grid-column: -2 / -1;
+    grid-row: -2 / -1;
+    padding: 4px 8px;
+}
+
+#submit-btn input {
+    width: 100%;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-family: 'Montserrat';
+}
+
+#submit-btn input:hover {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.18) inset, -1px -1px 5px rgba(0, 0, 0, 0.18) inset;
+}

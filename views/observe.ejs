@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/header.ejs') %>
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="stylesheet3.css">
+</head>
+
+<body>
+    <div class="page-container">
+        <%- include('partials/navbar.ejs') %>
+            <div id="flex-container">
+                <div id="observe-title">
+                    <p>
+                        <%= locals.date || 'Date Not Found' %>
+                    </p>
+                </div>
+                <div id="observe-content">
+                    <p>
+                        <%= locals.content || 'Content Not Found' %>
+                    </p>
+                </div>
+                <div id="delete-entry">
+                    <input type="button" value="Delete" id="delete-btn" onclick="showConfirmation()"
+                        style="display: flex">
+                    <div id="confirmation-prompt">
+                        <p>Are you sure you want to delete this entry?</p>
+                        <input type="button" value="Yes" onclick="deleteEntry()">
+                        <input type="button" value="No" onclick="showConfirmation()">
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const showConfirmation = () => {
+        let deleteBtn = document.getElementById('delete-btn')
+        let confirmationPrompt = document.getElementById('confirmation-prompt')
+
+        if (deleteBtn.style.display === 'flex') {
+            deleteBtn.style.display = 'none'
+            confirmationPrompt.style.display = 'flex'
+        }
+        else {
+            deleteBtn.style.display = 'flex'
+            confirmationPrompt.style.display = 'none'
+        }
+    }
+
+    const deleteEntry = () => {
+        console.log('click')
+        var xhttp = new XMLHttpRequest()
+
+        let url = location.href
+        let paramsString = url.split('?')[1]
+        let parameters = paramsString.split('&')
+        let date = parameters[0].split('=')[1]
+        let query = new URLSearchParams(paramsString)
+
+        xhttp.open('DELETE', `observe?date=${date}`)
+
+        xhttp.send()
+        xhttp.onload = function () {
+            document.getElementById('observe-content').firstElementChild.innerHTML = this.responseText
+            document.getElementById('delete-entry').style.visibility = 'hidden'
+
+            let start = 2
+            document.getElementById('countdown').innerText = String(start + 1)
+            setInterval(() => {
+                document.getElementById('countdown').innerText = String(start)
+                if (start > 0)
+                    start -= 1
+            }, 1000);
+            setTimeout(() => {
+                location.href = 'home'
+            }, (start + 1) * 1000 + 10)
+        }
+    }
+</script>
